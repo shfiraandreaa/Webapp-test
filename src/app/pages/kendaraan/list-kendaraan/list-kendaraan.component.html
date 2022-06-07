@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="search-form form-group">
+                    <form class="form-inline">
+                        <!-- [formGroup]="formSearch" (submit)="refresh()" -->
+                        <!-- <div class="input-search input-group" style="width: 180px;">
+                            <input class="form-control" type="text" placeholder="Nama Kendaraan" formControlName="namaKendaraan">
+                            
+                        </div>
+                        <div id="search-cont" class="utils-button">
+                            <button id="btn-search" class="btn search btn-success" type="submit">
+                                <i class="fa fa-search"></i>
+                                &nbsp; Cari
+                            </button>
+                        </div> -->
+                        <div id="add" class="utils-button">
+                            <button id="btn-add" type="button" class="btn plus btn-primary" [routerLink]="['/', 'tambah-data']">
+                                <i class="fa fa-plus"></i>
+                                &nbsp; Tambah
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-bordered">
+                        <caption>List Dari Kendaraan</caption>
+                        <thead class="thead-dark text-center">
+                            <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Nama Kendaraan</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-light" *ngFor="let data of listKendaraan; let i = index ">
+                            <tr>
+                                <th scope="row" class="text-center">{{i+1}}</th>
+                                <td>{{data.namaKendaraan}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-warning" (click)="edit(data)">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="delete(data)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

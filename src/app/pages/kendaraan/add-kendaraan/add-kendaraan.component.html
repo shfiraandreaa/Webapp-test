@@ -1,0 +1,38 @@
+<div class="container">
+
+    <!-- <div class="row mt-5 mb-3">
+         <div class="col-4 text-end">
+         <button type="button" class="btn btn-success" >List Kendaraan</button>
+     </div> -->
+    <div class="card mt-5" style="width: 50rem;">
+       <div class="card-header" style="background-color: #519259; color: white;">
+         <!-- Menambah Data Kendaraan -->
+         {{ titlePage }}
+       </div>
+       <div class="card-body">
+        <div class="search-form form-group">
+            <form class="form-inline" [formGroup]="formData">
+                <!--  (submit)="refresh()" -->
+                <div class="form-label mb-3">
+                    <label class="form-label">Masukkan Nama Kendaraan :</label>
+                    <input class="form-control" type="text" formControlName="namaKendaraan" placeholder="Nama Kendaraan" [(ngModel)]="kendaraan.namaKendaraan" >
+                    <!--  -->
+                </div>
+                <div id="save" class="utils-button" *ngIf="btnSimpan">
+                    <button id="btn-save" class="btn save btn-success" type="submit" (click)="save()">
+                        <i class="fa fa-save"></i>
+                        &nbsp; {{desc}}
+                    </button>
+                </div>
+                <div id="save" class="utils-button" *ngIf="btnUpdate">
+                    <button id="btn-save" class="btn save btn-success" type="submit" (click)="update()">
+                        <i class="fa fa-save"></i>
+                        &nbsp; {{desc}}
+                    </button>
+                </div>
+            </form>
+        </div>
+       </div>
+     </div>
+     
+ </div>
