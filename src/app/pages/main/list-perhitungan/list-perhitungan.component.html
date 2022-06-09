@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sidebar">
+    <div class="row logo"></div>
+    <hr>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','list']">
+            <i class="fa-regular fa-rectangle-list"></i>
+            &nbsp; Klasemen
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','data']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Pertandingan
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active act-klasemen">
+              <i class="fa-regular fa-folder"></i>
+              &nbsp; Data Perhitungan
+            </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<div class="container">
+  <div class="row nav-logout justify-content-end" style="cursor: pointer;">
+    <p [routerLink]="['/']">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </p>
+  </div>
+  <nav aria-label="breadcrumb" style="margin-top: 20px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a style="color: #212e34;">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data Perhitungann</li>
+    </ol>
+  </nav>
+  <div class="row body-klasemen">
+    <!-- <div class="card"> -->
+      <div class="card-body">
+        <div class="card-title mb-3">
+            <h5 style="margin-bottom: 1rem;">List Data Perhitungan</h5>
+        </div>
+        <!-- <div class="row ml-1">
+          <button type="button" class="btn btn-success" [routerLink]="['/','dashboard','data']">
+            <i class="fa-solid fa-plus"></i>
+            Tambah Data  
+          </button>
+        </div> -->
+        <table class="table mt-2 text-center">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Tim Bola</th>
+                <th scope="col">M</th>
+                <th scope="col">S</th>
+                <th scope="col">K</th>
+                <th scope="col">GM</th>
+                <th scope="col">GK</th>
+                <th scope="col">PD</th>
+                <th scope="col">+/-</th>
+                <th scope="col">P</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of listHitung; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{data.idTim}}</td>
+                <td>{{data.menang}}</td>
+                <td>{{data.seri}}</td>
+                <td>{{data.kalah}}</td>
+                <td>{{data.golMenang}}</td>
+                <td>{{data.golKalah}}</td>
+                <td>{{data.jumlahPertandingan}}</td>
+                <td>{{data.selisihGol}}</td>
+                <td>{{data.jumlahPoint}}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning" (click)="edit(data)"> 
+                    <!-- (click)="edit(data)" -->
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

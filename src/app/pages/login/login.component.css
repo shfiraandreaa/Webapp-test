@@ -1,0 +1,50 @@
+.all-login{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.left-img{
+    background-image: url('src/assets/img/bg.png');
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    margin-top: -140px;
+    height: 900px !important;
+}
+.head-form{
+    margin-top: 25%;
+}
+.form-login{
+    margin-top: 10%;
+    width: 80%;
+    margin-left: 10%;
+}
+.col-6 h2{
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    /* color: #4D4F5C; */
+    color: #33464F;
+}
+.btn-group{
+    width: 100%;
+}
+.btn-login{
+    border-color: #33464F;
+    background-color: #33464F;
+    color: #fff;
+}
+.btn-login:hover{
+    box-shadow: 3px 3px #33464F;
+}
+.btn-regis{
+    border-color: #33464F;
+    background-color: #fff;
+    color: #33464F;
+}
+.btn-regis:hover{
+    border-color: #b0b0b0;
+    background-color: #b0b0b0;
+    color: #fff;
+    box-shadow: 3px 3px 3px #b0b0b0;
+}

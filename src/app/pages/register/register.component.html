@@ -1,0 +1,31 @@
+<div class="row all-login">
+    <div class="col-6 left-img"></div>
+    <div class="col-6">
+        <h2 class="text-center head-form">
+            <b>REGISTRASI</b>
+        </h2>
+        <form class="form-login" [formGroup]="formRegis" (submit)="regis()">
+            <div class="row form-group">
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Nama Depan" formControlName="namaDepan">
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Nama Belakang" formControlName="namaBelakang">
+                  </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" formControlName="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <!-- <div class="form-group">
+                <input type="password" class="form-control" placeholder="Konfirmasi Password">
+            </div> -->
+            <div class="btn-group mt-5" role="group" aria-label="Basic example">
+                <button type="submit" class="btn btn-regis">Register</button>
+              </div>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+    </div>
+</div>

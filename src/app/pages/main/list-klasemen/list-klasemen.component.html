@@ -1,0 +1,151 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sidebar">
+    <div class="row logo"></div>
+    <hr>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active act-klasemen" >
+            <i class="fa-regular fa-rectangle-list"></i>
+            &nbsp; Klasemen
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','data']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Pertandingan
+          </a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','list-perhitungan']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Pertandingan
+          </a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','list-perhitungan']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Perhitungan
+          </a>
+        </li> -->
+      </ul>
+    </div>
+</nav>
+<div class="container">
+  <div class="row nav-logout justify-content-end" style="cursor: pointer;">
+    <p (click)="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+  </p>
+  </div>
+  <nav aria-label="breadcrumb" style="margin-top: 20px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a style="color: #212e34;">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Klasemen</li>
+    </ol>
+  </nav>
+  <div class="row body-klasemen">
+    <!-- <div class="card"> -->
+      <div class="card-body">
+        <h5 class="card-title text-center" style="padding-top: 10px; color: #fff;">
+          KLASEMEN LIVE
+        </h5>
+        <div class="row ml-1" *ngIf="btnEdit">
+          <button type="button" class="btn btn-success" [routerLink]="['/','dashboard','data']">
+            <i class="fa-solid fa-plus"></i>
+            Tambah Data  
+          </button>
+        </div>
+        <table class="table table-bordered mt-3" *ngIf="umum">
+          <thead class="text-center table-secondary">
+            <tr>
+              <th scope="col">R</th>
+              <th scope="col">Tim Bola</th>
+              <th scope="col">PD</th>
+              <th scope="col">M</th>
+              <th scope="col">S</th>
+              <th scope="col">K</th>
+              <th scope="col">GM</th>
+              <th scope="col">GK</th>
+              <th scope="col">SG</th>
+              <th scope="col">P</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="listData.length > 0">
+            <tr *ngFor="let data of listData; let i = index ">
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{i+1}}</td>
+              <td *ngIf="data.jumlahPoint > 0">{{data.namaTim}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.jumlahPertandingan}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.menang}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.seri}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.kalah}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.golMenang}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.golKalah}}</td>
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.selisihGol}}</td>
+              <!-- <td *ngIf="data.selisihGol > 0">+{{data.selisihGol}}</td> -->
+              <td *ngIf="data.jumlahPoint > 0" class=" text-center">{{data.jumlahPoint}}</td>
+            </tr>
+          </tbody>
+          <tbody class="text-center" *ngIf="listData.length == 0">
+            <tr>
+              <td colspan="9">Data Tidak Ditemukan</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered mt-3" *ngIf="btnEdit">
+          <thead class=" text-center table-secondary">
+            <tr>
+              <th scope="col">R</th>
+              <th scope="col">Tim Bola</th>
+              <th scope="col">PD</th>
+              <th scope="col">M</th>
+              <th scope="col">S</th>
+              <th scope="col">K</th>
+              <th scope="col">GM</th>
+              <th scope="col">GK</th>
+              <th scope="col">SG</th>
+              <th scope="col">P</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="listData.length > 0">
+            <tr *ngFor="let data of listData; let i = index ">
+              <td class=" text-center">{{i+1}}</td>
+              <td>{{data.namaTim}}</td>
+              <td class=" text-center">{{data.jumlahPertandingan}}</td>
+              <td class=" text-center">{{data.menang}}</td>
+              <td class=" text-center">{{data.seri}}</td>
+              <td class=" text-center">{{data.kalah}}</td>
+              <td class=" text-center">{{data.golMenang}}</td>
+              <td class=" text-center">{{data.golKalah}}</td>
+              <td class=" text-center">{{data.selisihGol}}</td>
+              <td class=" text-center">{{data.jumlahPoint}}</td>
+              <td class=" text-center">
+                <button type="button" class="btn btn-outline-warning" (click)="edit(data)">
+                  <!--  -->
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody class="text-center" *ngIf="listData.length == 0">
+            <tr>
+              <td colspan="9">Data Tidak Ditemukan</td>
+            </tr>
+          </tbody>
+        </table>
+        <caption>Keterangan</caption>
+        <ul style="color: #6c757d">
+          <li>R = Ranking</li>
+          <li>PD = Pertandingan yang telah Dimainkan</li>
+          <li>M = Menang</li>
+          <li>S = Seri</li>
+          <li>K = Kalah</li>
+          <li>GM = Gol Memasukan (gol ke gawang lawan)</li>
+          <li>GK = Gol Kemasukan</li>
+          <li>SG = Selisih Gol (SG = GM – GK)</li>
+          <li>P = Poin</li>
+        </ul>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

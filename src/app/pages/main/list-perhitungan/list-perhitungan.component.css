@@ -1,0 +1,64 @@
+.navbar{
+    display: block;
+    width: 15%;
+    background-color: #33464F !important;
+    height: 760px;
+    float: left;
+}
+/* .navbar-nav{
+    display: block;
+} */
+.logo{
+    /* border-style: solid; */
+    margin-top: 20px !important;
+    margin: auto;
+    width: 100%;
+    background-image: url('src/assets/img/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+}
+hr{
+    border-top: 2px solid #fff;
+    margin-left: -17px;
+    margin-right: -17px;
+}
+.nav-item{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nav-item:hover{
+    background-color: #212e34;
+    width: 100%;
+}
+.nav-link{
+    color: #fff !important;
+}
+.act-klasemen{
+    background-color: #212e34;
+    width: 100%;
+}
+.container{
+    float: left;
+    max-width: 85%;
+}
+.nav-logout{
+    /* border-style: solid; */
+    height: 50px;
+    background-color: #33464F;
+}
+.nav-logout p{
+    color: #fff; 
+    margin-right: 10px; 
+    margin-top: 10px;
+}
+.body-klasemen{
+    background-color: #fff;
+    /* margin-top: 50px; */
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.card-title{
+    border-bottom: 1px solid rgb(174, 174, 174);
+}

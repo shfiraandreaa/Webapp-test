@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sidebar">
+    <div class="row logo"></div>
+    <hr>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link">
+            <i class="fa-regular fa-rectangle-list"></i>
+            &nbsp; Klasemen
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','data']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Pertandingan
+          </a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link active act-klasemen">
+              <i class="fa-regular fa-folder"></i>
+              &nbsp; Data Perhitungan
+            </a>
+        </li> -->
+      </ul>
+    </div>
+</nav>
+<div class="container">
+  <div class="row nav-logout justify-content-end" style="cursor: pointer;">
+    <p [routerLink]="['/']">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </p>
+  </div>
+  <nav aria-label="breadcrumb" style="margin-top: 20px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a style="color: #212e34;">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data Perhitungan</li>
+    </ol>
+  </nav>
+  <div class="row body-klasemen">
+    <!-- <div class="card"> -->
+      <div class="card-body">
+        <div class="card-title mb-3">
+            <h5 style="margin-bottom: 1rem;">Data Master Perhitungan</h5>
+        </div>
+        <form [formGroup]="formData">
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Tim Bola</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="inputPassword3" formControlName="namaTim" placeholder="{{allData?.namaTim}}" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Menang</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" formControlName="menang" placeholder="{{allData?.menang}}">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Seri</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" formControlName="seri" placeholder="{{allData?.seri}}">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Kalah</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" formControlName="kalah" placeholder="{{allData?.kalah}}">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Gol Memasukkan</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" formControlName="golMenang" placeholder="{{allData?.golMenang}}" readonly>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Gol Kemasukkan</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" formControlName="golKalah" placeholder="{{allData?.golKalah}}" readonly>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Pertandingan</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="inputPassword3" readonly placeholder="{{allData?.jumlahPertandingan}}">
+            </div>
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-success" (click)="hitungTanding()">
+                    <i class="fa-regular fa-plus"></i>
+                    Hitung
+                </button>
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Selisih Gol</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputPassword3" readonly placeholder="{{allData?.selisihGol}}">
+              </div>
+              <div class="col-sm-5">
+                  <button type="button" class="btn btn-success" (click)="hitungSelisihGol()">
+                      <i class="fa-regular fa-plus"></i>
+                      Hitung
+                  </button>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Point</label>
+              <div class="col-sm-5">
+                <input type="text" class="form-control" id="inputPassword3" readonly placeholder="{{allData?.jumlahPoint}}">
+              </div>
+              <div class="col-sm-5">
+                  <button type="button" class="btn btn-success" (click)="hitungPoint()">
+                      <i class="fa-regular fa-plus"></i>
+                      Hitung
+                  </button>
+              </div>
+          </div>
+        </form>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-secondary" [routerLink]="['/','dashboard']">
+              <i class="fa-solid fa-xmark"></i>
+              Batal
+            </button>
+            <button type="submit" class="btn btn-primary ml-2" (click)="update()">
+              <i class="fa-regular fa-save"></i>
+                Simpan
+            </button>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>

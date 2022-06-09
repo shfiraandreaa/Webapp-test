@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sidebar">
+    <div class="row logo"></div>
+    <hr>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link">
+            <!-- [routerLink]="['/','dashboard','list']" -->
+            <i class="fa-regular fa-rectangle-list"></i>
+            &nbsp; Klasemen
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link active act-klasemen">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Pertandingan
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/','dashboard','list-perhitungan']">
+            <i class="fa-regular fa-folder"></i>
+            &nbsp; Data Perhitungan
+          </a>
+        </li> -->
+      </ul>
+    </div>
+</nav>
+<div class="container">
+  <div class="row nav-logout justify-content-end" style="cursor: pointer;">
+    <p [routerLink]="['/']">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+    </p>
+  </div>
+  <nav aria-label="breadcrumb" style="margin-top: 20px;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a style="color: #212e34;">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data Pertandingan</li>
+    </ol>
+  </nav>
+  <div class="row body-klasemen">
+    <!-- <div class="card"> -->
+      <div class="card-body">
+        <div class="card-title mb-3">
+            <h5 style="margin-bottom: 1rem;">Data Master Tim</h5>
+        </div>
+        <form [formGroup]="formData" (submit)="save()">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Tim Bola</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="namaTim">
+                  <option disabled>Nama Tim</option>
+                  <option *ngFor = "let tim of listTim" value={{tim.namaKlub}}>{{tim.namaKlub}}</option>
+                </select>
+              </div>
+            </div>
+            <!-- <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Pertandingan</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div> -->
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Menang</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="inputPassword3" formControlName="menang">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Seri</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="inputPassword3" formControlName="seri">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Kalah</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="inputPassword3" formControlName="kalah">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Gol Memasukkan</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="inputPassword3" formControlName="golMenang">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Gol Kemasukkan</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="inputPassword3" formControlName="golKalah">
+                </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-secondary" [routerLink]="['/','dashboard']">
+                  <i class="fa-solid fa-xmark"></i>
+                  Batal
+                </button>
+                <button type="submit" class="btn btn-primary ml-2">
+                  <i class="fa-regular fa-save"></i>
+                  Simpan
+                </button>
+              </div>
+            </div>
+        </form>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
